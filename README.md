@@ -19,6 +19,7 @@
      
    
 **요구사항**
+
  과제 및 프로젝트는 반드시 **Github**를 통하여 제출:
  
  [초보자를 위한 Github 사용법](https://www.youtube.com/watch?v=JEY3X64gX4Q&t=552s)
