@@ -28,3 +28,9 @@
      
  [![초보자를 위한 Github 사용법](http://img.youtube.com/vi/JEY3X64gX4Q/0.jpg)](https://www.youtube.com/watch?v=JEY3X64gX4Q&t=552s) 
 
+
+**알림사항**
+ - 3월 16일: 기초 회로 부품들을 이번주 금요일(3월16일) 실습 시간에 나누어줄 계획입니다.
+ - 3월 20일: [Git/Github 입문하기 Hands on Lab_2018. 3. 31(토)](https://docs.google.com/forms/d/e/1FAIpQLSfOOPkLq3dBOY98yRz9qHggdRZH1G9oL1A4YowY2ov2ZoLb0w/viewform) 많이 참여하면 좋을 것 같아요.
+ 
+ 
