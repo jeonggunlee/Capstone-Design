@@ -11,11 +11,11 @@
 **과제 및 팀**
 
    - **Team A** : Sound Pattern Analysis and Sound-Controlled-Home-Appliance 제작 (매칭기업 FrontU)
-      
+
    - **KKKK** : 장애인 주차 관리 시스템 개발 (매칭기업 GeoMex Soft)
-      
-   - **WeatherBox** : 현재의 날씨 정보를 받아 실제로 박스안에서 보여주는 LED Box 제작 (매칭기업 FrontU)
-   
+
+   - **WeatherBox** : 현재의 날씨 정보를 받아 실제로 박스안에서 보여주는 LED Box 제작 (매칭기업 FrontU)
+
    - **DitialDoorLock** : 핸드폰 잠금 앱과 같은 형태의 Digital Door Lock 제작 (매칭기업 FrontU)
    
      
