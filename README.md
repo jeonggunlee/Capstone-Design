@@ -31,5 +31,5 @@
 
 **알림사항**
  - 3월 20일: [Git/Github 입문하기 Hands on Lab_2018. 3. 31(토)](https://docs.google.com/forms/d/e/1FAIpQLSfOOPkLq3dBOY98yRz9qHggdRZH1G9oL1A4YowY2ov2ZoLb0w/viewform) 많이 참여하면 좋을 것 같아요.
- - 3월 21일: 캡스톤디자인 전산시스템 주소 ☞ [http://capstone.hallym.ac.kr/](http://capstone.hallym.ac.kr/)
+ - 3월 21일: 캡스톤디자인 전산시스템 주소 ☞ [http://capstone.hallym.ac.kr/](http://capstone.hallym.ac.kr/) [매뉴얼](https://github.com/jeonggunlee/Capstone-Design/blob/master/Reference/%EC%BA%A1%EC%8A%A4%ED%86%A4%EB%94%94%EC%9E%90%EC%9D%B8_%EC%8B%A0%EC%B2%AD%EC%84%9C%EC%9E%91%EC%84%B1(%ED%95%99%EC%83%9D%EB%A7%A4%EB%89%B4%EC%96%BC).pptx)
  
