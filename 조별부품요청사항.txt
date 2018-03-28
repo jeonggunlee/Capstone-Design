@@ -7,7 +7,13 @@ KKKK:
   여기에 정리 해주세요.
 
 WeatherBox:
-  여기에 정리 해주세요.
+ 아크릴판:  나중에 주문제작 
+ usb가습기:   www.coupang.com/vp/products/442417?vendorItemId=3041311257&eventLabel=recommendation_widget_pc_sdp_001&platform=web&rmdABTestInfo=3594:D&rmdValue=p42185952:vt-0.1.2:p442417  튜브: 내경 6m 외경 10m 50cm http://smartstore.naver.com/k-silicone/products/357445220?NaPm=ct%3Djfase4l4%7Cci%3Deefcac195dc92e4ccd7c7593caaf133b40a7c15e%7Ctr%3Dsls%7Csn%3D335457%7Chk%3D7fd891134addfc9e0e4380ef4d19dae2db92902b
+모터(펌프): http://toolparts.co.kr/product/detail.html?product_no=68410&cate_no=3102&display_group=1&cafe_mkt=naver_ks&mkt_in=Y&ghost_mall_id=naver&ref=naver_open&NaPm=ct%3Djexsm2aw%7Cci%3D4562cc82bfc16eb4ab0b0b0896e76887b2c4e9bc%7Ctr%3Dsls%7Csn%3D115848%7Chk%3Def95a14567aae259804f86b97fb14ffd3b0f45c6  
+led 스트립: http://itempage3.auction.co.kr/DetailView.aspx?ItemNo=B227100584&frm3=V2 30cm~
+오렌지보드(wifi): http://toolparts.co.kr/product/detail.html?product_no=71714&cate_no=1593&display_group=1 
+3d 프린팅:  링크사업단과 상의후  우드락(임시로우드락사용)
+
 
 DigitalDoorLock:
   여기에 정리 해주세요.
