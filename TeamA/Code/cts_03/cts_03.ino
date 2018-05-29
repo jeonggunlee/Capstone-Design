@@ -41,8 +41,8 @@ void setup() {
     moveServo();
     
     pinMode(buttonPin, INPUT_PULLUP);
-    pinMode(r_ledPin, OUTPUT);                        // 핀 모드 설정; LED핀, 출력
-    pinMode(g_ledPin, OUTPUT);                       // 핀 모드 설정; LED핀, 출력
+    pinMode(r_ledPin, OUTPUT);                      // 핀 모드 설정; LED핀, 출력
+    pinMode(g_ledPin, OUTPUT);                      // 핀 모드 설정; LED핀, 출력
 
     timeout = new TimerObject(2000, &callback);     // 타이머 생성; 2초
 }
