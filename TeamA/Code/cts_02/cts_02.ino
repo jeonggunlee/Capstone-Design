@@ -13,8 +13,8 @@
 
 int ledPin = 7;
 int ledPin2 = 8;
-int thresholdH = 70;            // high threshold; Th(H)
-int thresholdL = 60;            // low threshold; Th(L)
+int thresholdH = 610;            // high threshold; Th(H)
+int thresholdL = 550;            // low threshold; Th(L)
 int tc = 50;                    // clap sound wave time; T(c)
 int tw = 100;                   // 대기 시간; T(w)
 int tr = 200;                   // 박수 간격; T(r)
@@ -63,34 +63,6 @@ bool checkMatch(int *match, int ml, int *claps) {   // 패턴 검사
 }
 
 void loop() {
-    if (analogRead(A0) > thresholdH) {
-        if (timeout->isEnabled()) {
-            tb = round_t(timeout->getCurrentTime(), 200);
-            timeout->Stop();  
-        }
-        delay(tc);
-        if (analogRead(A0) < thresholdL) {
-            claps[cc++] = tb;
-            Serial.print("clap count:");
-            Serial.print(cc);
-            Serial.print(", clap delay: ");
-            Serial.println(tb);
-            printArray(claps);
-            Serial.println();
-            timeout->Start();
-            digitalWrite(ledPin2, HIGH);
-            delay(tw);
-            digitalWrite(ledPin2, LOW);
-        }
-    }
-    
-    if (checkMatch(match, ml, claps)) {
-        Serial.println("LED lit");
-        digitalWrite(ledPin, HIGH);
-        delay(2000);
-        digitalWrite(ledPin, LOW);
-        callback();
-    }
-
-    timeout->Update();
+    Serial.println(analogRead(A0));
+    delay(50);
 }
