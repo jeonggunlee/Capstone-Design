@@ -4,7 +4,7 @@
    - **6월 25일**: 최종 발표자료 제출
       - 최종 발표자료는 Github를 통하여 제출: 본인의 계정에 새로운 Git Project로 생성하여 제출
       - Source Code 및 문서화 (마크다운 언어를 이용하여 제출)
-         - 본인의 프로젝트에 오픈소스 SW가 어떻게 활용되었고 수정되어 사용되었는지 명확히 기술할것!
+         - **본인의 프로젝트에 오픈소스 SW가 어떻게 활용되었고 수정되어 사용되었는지 명확히 기술할것!**
    - **6월 14일(목요일)**: 최종 DEMO 발표      
    - 3월 21일: 캡스톤디자인 전산시스템 주소 ☞ [http://capstone.hallym.ac.kr/](http://capstone.hallym.ac.kr/)  [매뉴얼](https://github.com/jeonggunlee/Capstone-Design/blob/master/Reference/%EC%BA%A1%EC%8A%A4%ED%86%A4%EB%94%94%EC%9E%90%EC%9D%B8_%EC%8B%A0%EC%B2%AD%EC%84%9C%EC%9E%91%EC%84%B1(%ED%95%99%EC%83%9D%EB%A7%A4%EB%89%B4%EC%96%BC).pptx) 참조!
       - 세부문서 관련하여 -> [Reference 디렉토리참조](https://github.com/jeonggunlee/Capstone-Design/tree/master/Reference)!
