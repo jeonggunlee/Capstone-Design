@@ -1,5 +1,12 @@
 # Software Capstone-Design Project 2018년 봄학기
 
+**알림**
+   - 6월 14일: 최종 DEMO 발표
+   - 6월 25일: 최종 발표자료 제출
+      - 최종 발표자료는 Github를 통하여 제출
+      - Source Code 및 문서화 (마크다운 언어를 이용하여 제출)
+
+
 **담당교수:**
    - 이정근 (공학관 1306, 033-248-2312, jeonggun.lee@gmail.com)
 
