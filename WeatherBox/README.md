@@ -76,7 +76,7 @@
     WiFiClient client;
     IPAddress hostIp;
               
-//////////////////////////////////////////////////////////////////////////////////////////
+------------------------------------------------------------------------------------------------------------
                  
     unsigned long lastConnectionTime = 0;         // last time you connected to the server, in milliseconds
     const unsigned long postingInterval = 1000L; // delay between updates, in milliseconds
@@ -134,7 +134,7 @@
     httpRequest();
     } 
                      
-//////////////////////////////////////////////////////////////////////////////////////////
+--------------------------------------------------------------------------------------------------------
                         
     void loop() {  
     String valString;
@@ -183,7 +183,7 @@
     }//end if
   }
                            
-//////////////////////////////////////////////////////////////////////////////////////////
+-------------------------------------------------------------------------------
                         
             //api로 받아온 날씨 자르기
             while (client.available()) {     
@@ -245,7 +245,7 @@
     rcvbuf = "";
     }
                         
-//////////////////////////////////////////////////////////////////////////////////////////
+---------------------------------------------------------------------------------------------
 
           // this method makes a HTTP connection to the server
             void httpRequest() {
@@ -279,7 +279,7 @@
     }
     }
 
-//////////////////////////////////////////////////////////////////////////////////////////
+----------------------------------------------------------------------------------------------
 
     int getInt(String input) {
     int i = 2;
@@ -293,7 +293,7 @@
     return temp;
     }
 
-//////////////////////////////////////////////////////////////////////////////////////////
+---------------------------------------------------------------------------------------------------
 
     void Animation()        // 파싱해오는 weather값에 따라 이펙트 출력
     {
@@ -468,38 +468,39 @@
     }
     }
     }
-
+----------------------------------------------------------------------------------
   - **2. 장소변경 앱 만들기** 
-     build.gradle(Module: app)에 compile 'com.akexorcist:bluetoothspp:1.0.0' 추가
-        > MainActivity.java
-package com.example.leeje.lasttest;
-import android.content.Intent;
-import android.location.Address;
-import android.location.Geocoder;
-import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
+ build.gradle(Module: app)에 compile 'com.akexorcist:bluetoothspp:1.0.0' 추가
+        
+    MainActivity.java
+    package com.example.leeje.lasttest;
+    import android.content.Intent;
+    import android.location.Address;
+    import android.location.Geocoder;
+    import android.net.Uri;
+    import android.support.v7.app.AppCompatActivity;
+    import android.os.Bundle;
+    import android.util.Log;
+    import android.view.View;
+    import android.widget.Button;
+    import android.widget.EditText;
+    import android.widget.TextView;
 
-import java.io.IOException;
-import java.util.List;
+    import java.io.IOException;
+    import java.util.List;
 
-import android.app.Activity;
-import android.bluetooth.BluetoothAdapter;
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.Toast;
-import app.akexorcist.bluetotohspp.library.BluetoothSPP;
-import app.akexorcist.bluetotohspp.library.BluetoothState;
-import app.akexorcist.bluetotohspp.library.DeviceList;
-
+    import android.app.Activity;
+    import android.bluetooth.BluetoothAdapter;
+    import android.content.Intent;
+    import android.support.v7.app.AppCompatActivity;
+    import android.os.Bundle;
+    import android.view.View;
+    import android.widget.Button;
+    import android.widget.Toast;
+    import app.akexorcist.bluetotohspp.library.BluetoothSPP;
+    import app.akexorcist.bluetotohspp.library.BluetoothState;
+    import app.akexorcist.bluetotohspp.library.DeviceList;
+  
     public class MainActivity extends AppCompatActivity {
     private BluetoothSPP bt;
 
@@ -697,10 +698,11 @@ import app.akexorcist.bluetotohspp.library.DeviceList;
             }
         }
     }
-      
+----------------------------------------------------------------------------------------------------------      
    > activity_main.xml
-<?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   
+    <?xml version="1.0" encoding="utf-8"?>
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -826,7 +828,7 @@ import app.akexorcist.bluetotohspp.library.DeviceList;
             android:text="지도2" />
     </RelativeLayout>
     </android.support.constraint.ConstraintLayout>
-
+--------------------------------------------------------------------------------------------------------------------
 **동영상**
 
 
