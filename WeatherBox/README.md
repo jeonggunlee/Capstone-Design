@@ -1,11 +1,11 @@
 # Weather_box를 소개합니다.^^
 
 **간단소개**
-      - **주제**: 실시간 날씨 데이터를 시각적으로 표현하기(구름,비,빛) + 미세먼지,온습도 센서 데이터 표현하기
-      - **프로젝트 기간**: 2018.03.07 ~ 2018.06.14
-      - **팀원**: 컴퓨터공학과 김민정,김태훈,이지은,현동아
-      - **성과**: 캡스톤 경진대회 은상 수상
-      - **부품**: (nodeMCU,블루투스,neoPixcelLED,수중펌프,릴레이,가습기,아크릴판,우드락,콘센트)+ (아두이노보드,미센먼지센서,온습도센서,LCD,도트매트릭스)
+      - **주제: 실시간 날씨 데이터를 시각적으로 표현하기(구름,비,빛) + 미세먼지,온습도 센서 데이터 표현하기
+      - **프로젝트 기간: 2018.03.07 ~ 2018.06.14
+      - **팀원: 컴퓨터공학과 김민정,김태훈,이지은,현동아
+      - **성과: 캡스톤 경진대회 은상 수상
+      - **부품: (nodeMCU,블루투스,neoPixcelLED,수중펌프,릴레이,가습기,아크릴판,우드락,콘센트)+ (아두이노보드,미센먼지센서,온습도센서,LCD,도트매트릭스)
           
 **목적**
 >   - 우리는 수 많은 IT제품들에 열광하고 둘러싸여 생활하고 있습니다. 쏟아져 나오는 인공물 속에서 자연의 모습을 품은 제품을 만나면 얼마나 반가울까?     **weather_box를 통해 자연이 주는 감성을 되살릴 수 있습니다.**
@@ -470,49 +470,50 @@
     }
 ----------------------------------------------------------------------------------
   - **2. 장소변경 앱 만들기** 
- build.gradle(Module: app)에 compile 'com.akexorcist:bluetoothspp:1.0.0' 추가
-        
-    MainActivity.java
-    package com.example.leeje.lasttest;
-    import android.content.Intent;
-    import android.location.Address;
-    import android.location.Geocoder;
-    import android.net.Uri;
-    import android.support.v7.app.AppCompatActivity;
-    import android.os.Bundle;
-    import android.util.Log;
-    import android.view.View;
-    import android.widget.Button;
-    import android.widget.EditText;
-    import android.widget.TextView;
-
-    import java.io.IOException;
-    import java.util.List;
-
-    import android.app.Activity;
-    import android.bluetooth.BluetoothAdapter;
-    import android.content.Intent;
-    import android.support.v7.app.AppCompatActivity;
-    import android.os.Bundle;
-    import android.view.View;
-    import android.widget.Button;
-    import android.widget.Toast;
-    import app.akexorcist.bluetotohspp.library.BluetoothSPP;
-    import app.akexorcist.bluetotohspp.library.BluetoothState;
-    import app.akexorcist.bluetotohspp.library.DeviceList;
   
-    public class MainActivity extends AppCompatActivity {
-    private BluetoothSPP bt;
+     **build.gradle(Module: app)에 compile 'com.akexorcist:bluetoothspp:1.0.0' 추가
+       
+         MainActivity.java
+        package com.example.leeje.lasttest;
+        import android.content.Intent;
+        import android.location.Address;
+        import android.location.Geocoder;
+        import android.net.Uri;
+        import android.support.v7.app.AppCompatActivity;
+        import android.os.Bundle;
+        import android.util.Log;
+        import android.view.View;
+        import android.widget.Button;
+        import android.widget.EditText;
+        import android.widget.TextView;
 
-    String temp ;   //temp에 문자열 저장
-    String []arr ; //,기준으로 자르기
-    String []latitude ; //위도
-    String []longitude ;    //경도
+        import java.io.IOException;
+        import java.util.List;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
+        import android.app.Activity;
+        import android.bluetooth.BluetoothAdapter;
+        import android.content.Intent;
+        import android.support.v7.app.AppCompatActivity;
+        import android.os.Bundle;
+        import android.view.View;
+        import android.widget.Button;
+        import android.widget.Toast;
+        import app.akexorcist.bluetotohspp.library.BluetoothSPP;
+        import app.akexorcist.bluetotohspp.library.BluetoothState;
+        import app.akexorcist.bluetotohspp.library.DeviceList;
+  
+        public class MainActivity extends AppCompatActivity {
+        private BluetoothSPP bt;
+
+        String temp ;   //temp에 문자열 저장
+        String []arr ; //,기준으로 자르기
+        String []latitude ; //위도
+        String []longitude ;    //경도
+
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+           setContentView(R.layout.activity_main);
 
         bt = new BluetoothSPP(this); //Initializing
 
