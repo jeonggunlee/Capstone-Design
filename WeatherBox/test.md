@@ -1,1 +1,1 @@
-![Alt text](바탕 화면/raining.jpg "Optional title")
+![Alt text](C:\exex\raining.jpg "Optional title")
