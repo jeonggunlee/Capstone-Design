@@ -50,96 +50,96 @@ SoftwareSerial BTSerial(D3, D5);
 Adafruit_NeoPixel strip = Adafruit_NeoPixel(N_LEDS, PIN, NEO_GRBW + NEO_KHZ800);
 #define VARID "70b9642cec0afd458b10d3914b597364"  //api key
 
-//////////////////////////////////////////////////////////////////////////////////////////
-
-//블루투스 연결시 사용한 변수
-String cLine = "";
-String latString = "";
-String lonString = "";
-boolean readingLat = false;
-boolean readingLon = false;
-int i=2;
-int j=2;
-
-//////////////////////////////////////////////////////////////////////////////////////////
-
-char ssid[] = "Hallym WiFi";       // wifi ssid
-char pass[] = "1111133333";        // wifi password
-int status = WL_IDLE_STATUS;       // the Wifi radio's status
-char server[] = "api.openweathermap.org";
-int getInt(String input);
-void Animation(); //파싱해오는 weather값에 따라 이펙트 출력
-void a(byte state); //가습기 상태
-void httpRequest();
-void printWifiStatus();
-WiFiClient client;
-IPAddress hostIp;
+////////////////////////////////////////////////////////////////////////////////////////// 
+                    
+      //블루투스 연결시 사용한 변수  
+      String cLine = "";
+      String latString = "";
+      String lonString = "";
+      boolean readingLat = false;
+      boolean readingLon = false;
+      int i=2;
+      int j=2;
 
 //////////////////////////////////////////////////////////////////////////////////////////
+                              
+    char ssid[] = "Hallym WiFi";       // wifi ssid
+    char pass[] = "1111133333";        // wifi password
+    int status = WL_IDLE_STATUS;       // the Wifi radio's status
+    char server[] = "api.openweathermap.org";
+    int getInt(String input);
+    void Animation(); //파싱해오는 weather값에 따라 이펙트 출력
+    void a(byte state); //가습기 상태
+    void httpRequest();
+    void printWifiStatus();
+    WiFiClient client;
+    IPAddress hostIp;
+              
+//////////////////////////////////////////////////////////////////////////////////////////
+                 
+    unsigned long lastConnectionTime = 0;         // last time you connected to the server, in milliseconds
+    const unsigned long postingInterval = 1000L; // delay between updates, in milliseconds
+    boolean readingVal;
+    boolean getIsConnected = false;
+    int val, temp;
+    float tempVal;
+    float temphum;
+    String rcvbuf;
+    int weather;  //날씨코드 저장
+    int b = 1;  //가습기 상태 저장
+    String currentLine = "";          // 서버에서 전송된 데이터 String저장
+    String tempString = "";           // 온도 저장 변수
+    String humString = "";            // 습도 저장 변수
+    String timeString = "";           // 시간 정보 변수
+    String pressureString = "";       // 압력 정보 변수
+    boolean readingTemp = false;      //온도 데이터가 있는지 여부 판단
+    boolean readingHum = false;       //습도 데이터가 있는지 여부 판단
+    boolean readingTime = false;      //시간 데이터가 있는지 여부 판단
+    boolean readingPressure = false;  //압력 데이터가 있는지 여부 판단
+    boolean readingWeather = false;
+    String weatherString = "";
 
-unsigned long lastConnectionTime = 0;         // last time you connected to the server, in milliseconds
-const unsigned long postingInterval = 1000L; // delay between updates, in milliseconds
-boolean readingVal;
-boolean getIsConnected = false;
-int val, temp;
-float tempVal;
-float temphum;
-String rcvbuf;
-int weather;  //날씨코드 저장
-int b = 1;  //가습기 상태 저장
-String currentLine = "";          // 서버에서 전송된 데이터 String저장
-String tempString = "";           // 온도 저장 변수
-String humString = "";            // 습도 저장 변수
-String timeString = "";           // 시간 정보 변수
-String pressureString = "";       // 압력 정보 변수
-boolean readingTemp = false;      //온도 데이터가 있는지 여부 판단
-boolean readingHum = false;       //습도 데이터가 있는지 여부 판단
-boolean readingTime = false;      //시간 데이터가 있는지 여부 판단
-boolean readingPressure = false;  //압력 데이터가 있는지 여부 판단
-boolean readingWeather = false;
-String weatherString = "";
-
-void setup() {
-  strip.setBrightness(BRIGHTNESS);
-  Serial.begin(9600);
-  BTSerial.begin(9600);
-  Serial.println();
-  pinMode(D2,OUTPUT); //pump
-  pinMode(D7,OUTPUT); //cloud
-  pinMode(D8,OUTPUT); //cloud
-  #if defined (__AVR_ATtiny85__)
+    void setup() {
+    strip.setBrightness(BRIGHTNESS);
+    Serial.begin(9600);
+    BTSerial.begin(9600);
+    Serial.println();
+    pinMode(D2,OUTPUT); //pump
+    pinMode(D7,OUTPUT); //cloud
+    pinMode(D8,OUTPUT); //cloud
+    #if defined (__AVR_ATtiny85__)
     if (F_CPU == 16000000) clock_prescale_set(clock_div_1);
-  #endif
-  strip.begin();
-  WiFi.disconnect();
-  delay(1000);
+    #endif
+    strip.begin();
+    WiFi.disconnect();
+    delay(1000);
   
-  //connect to preferred SSID
-  WiFi.begin(ssid, pass);
-  Serial.println("Connecting");
+    //connect to preferred SSID
+    WiFi.begin(ssid, pass);
+    Serial.println("Connecting");
 
-  while (WiFi.status() != WL_CONNECTED) {
+    while (WiFi.status() != WL_CONNECTED) {
     delay(500);
     Serial.print(".");
-  }
-  Serial.println();
+    }
+    Serial.println();
 
-  // print SSID name,local IP allotted ,MAC address & signal strength
-  Serial.println();
-  Serial.print("Connected to SSID          : ");
-  Serial.println(WiFi.SSID());
-  Serial.print("IP address allotted to ESP : ");
-  Serial.println(WiFi.localIP());
-  httpRequest();
-}
-
+    // print SSID name,local IP allotted ,MAC address & signal strength
+    Serial.println();
+    Serial.print("Connected to SSID          : ");
+    Serial.println(WiFi.SSID());
+    Serial.print("IP address allotted to ESP : ");
+    Serial.println(WiFi.localIP());
+    httpRequest();
+    } 
+                     
 //////////////////////////////////////////////////////////////////////////////////////////
+                        
+    void loop() {  
+    String valString;
 
-void loop() {  
-  String valString;
-
-  //블루투스로 받아온 문자열 잘라서 위도, 경도 변수에 저장
-  while(BTSerial.available()) {
+    //블루투스로 받아온 문자열 잘라서 위도, 경도 변수에 저장
+    while(BTSerial.available()) {
     char ch = BTSerial.read();   
     cLine += ch;
 
@@ -181,12 +181,12 @@ void loop() {
       }//end else
     }//end if
   }
-  
+                           
 //////////////////////////////////////////////////////////////////////////////////////////
-
-  //api로 받아온 날씨 자르기
-  while (client.available()) {     
-    char inChar = client.read();  //inChar에 읽어온 내용 저장
+                        
+            //api로 받아온 날씨 자르기
+            while (client.available()) {     
+      char inChar = client.read();  //inChar에 읽어온 내용 저장
     currentLine += inChar;
 
     if(inChar == '\n') {
@@ -236,25 +236,26 @@ void loop() {
       client.stop(); 
       httpRequest();
     }
-  }//end while
+    }//end while
  
-  if (millis() - lastConnectionTime > postingInterval) {
+    if (millis() - lastConnectionTime > postingInterval) {
     httpRequest();
-  }
-  rcvbuf = "";
-}
-
+    }
+    rcvbuf = "";
+    }
+                        
 //////////////////////////////////////////////////////////////////////////////////////////
-// this method makes a HTTP connection to the server
-void httpRequest() {
-  Serial.println();
 
-  // close any connection before send a new request
-  // this will free the socket on the WiFi shield
-  client.stop();
+          // this method makes a HTTP connection to the server
+            void httpRequest() {
+              Serial.println();
 
-  // if there's a successful connection
-  if (client.connect(server, 80)) {
+     // close any connection before send a new request
+     // this will free the socket on the WiFi shield
+     client.stop();
+
+    // if there's a successful connection
+    if (client.connect(server, 80)) {
     Serial.println("Connecting...");
 
     // send the HTTP PUT request
@@ -269,206 +270,208 @@ void httpRequest() {
     // note the time that the connection was made
     lastConnectionTime = millis();
     getIsConnected = true;
-  }
-  else {
+    }
+    else {
     // if you couldn't make a connection
     Serial.println("Connection failed");
     getIsConnected = false;
-  }
-}
+    }
+    }
 
 //////////////////////////////////////////////////////////////////////////////////////////
-int getInt(String input) {
-  int i = 2;
-  while(input[i] != '"'){
+
+    int getInt(String input) {
+    int i = 2;
+    while(input[i] != '"'){
     i++;
-  }
-  input = input.substring(2,i);
-  char carray[20];
-  input.toCharArray(carray, sizeof(carray));
-  temp = atoi(carray);
-  return temp;
-}
+    }
+    input = input.substring(2,i);
+    char carray[20];
+    input.toCharArray(carray, sizeof(carray));
+    temp = atoi(carray);
+    return temp;
+    }
 
 //////////////////////////////////////////////////////////////////////////////////////////
-void Animation()        // 파싱해오는 weather값에 따라 이펙트 출력
-{
-  /*Lightening Rain*/
-  if(weather <= 232 && weather >= 200)
-  {
+
+    void Animation()        // 파싱해오는 weather값에 따라 이펙트 출력
+    {
+     /*Lightening Rain*/
+    if(weather <= 232 && weather >= 200)
+    {
     Rain_PUMP(1);
     Lightening_LED();
     
     Cloud_PUMP(1);//Cloud Effect
     Serial.println("lightening");
-  }
-  /*Light Rain*/
-  else if(weather <= 321 && weather >= 300)
-  {
+    }
+     /*Light Rain*/
+    else if(weather <= 321 && weather >= 300)
+    {
     Rain_PUMP(1);
     Light_Rainy_LED();
     Cloud_PUMP(0); 
     //Serial.println("light"); 
-  }
-  /*White Snow*/
-  else if(weather <= 622 && weather >= 600)
-  {
+    }
+     /*White Snow*/
+    else if(weather <= 622 && weather >= 600)
+    {
     Rain_PUMP(1);
     Snowy_LED();
     //Serial.println("white");
-  }
-  /*Fog*/
-  else if(weather <= 721 && weather >= 701 || (weather == 741))
-  {
+    }
+      /*Fog*/
+    else if(weather <= 721 && weather >= 701 || (weather == 741))
+     {
     Rain_PUMP(1);
     Cloud_PUMP(1);//Cloud Effect
     //No LED
     //Serial.println("Fog");
     Lightening_LED();
     //Serial.println("LEd");
-  }
-  /*Dark Cloudy*/
-  else if((weather == 731) || (weather == 751) || (weather == 761) || (weather == 781))
-  {
+      }
+      /*Dark Cloudy*/
+    else if((weather == 731) || (weather == 751) || (weather == 761) || (weather == 781))
+    {
     Rain_PUMP(0);
     Cloudy_LED();
     Cloud_PUMP(1);// Cloud Effect
     //Serial.println("dark");
-  }
-  /*General Cloud*/
-  else if(weather <= 804 && weather >= 800)
-  {
+    }
+      /*General Cloud*/
+    else if(weather <= 804 && weather >= 800)
+    {
     Rain_PUMP(1);
     Fine_LED();
     Cloud_PUMP(1);// Cloud Effect
     //Serial.println("general");
-  }
-}
+     }
+    }
 
-void a(byte state)  //가습기 상태 변화 함수
-{
-  if(b == state){
-    Serial.println("b==state");
-  }
-  else {
+    void a(byte state)  //가습기 상태 변화 함수
+     {
+     if(b == state){
+     Serial.println("b==state");
+     }
+    else {
     Serial.println("b!=state");
     digitalWrite(CLOUD,HIGH);
     delay(2000);
     digitalWrite(CLOUD,LOW);
     b = state; 
-  }
-}
+      }
+    }
 
-void Cloud_PUMP(byte state)           // 구름(가습기)구동 함수
-{
-  a(state);
-}
-void Rain_PUMP(byte stat)            // 펌프 구동 함수
-{
-  if(stat == 0){digitalWrite(PUMP,LOW);}
-  else if(stat == 1){digitalWrite(PUMP,HIGH);}
-}
+     void Cloud_PUMP(byte state)           // 구름(가습기)구동 함수
+     {
+     a(state);
+      }
+     void Rain_PUMP(byte stat)            // 펌프 구동 함수
+     {
+     if(stat == 0){digitalWrite(PUMP,LOW);}
+      else if(stat == 1){digitalWrite(PUMP,HIGH);}
+     }
 
-void Fine_LED()                       // '맑은 날' LED 출력
-{
-  int i;
-  for(i=0;i<201;i++)
-  {
-    LED_ON(strip.Color(255,i,0));
-  }
-  for(i=0;i<47;i++)
-  {
-    LED_ON(strip.Color(255,200,i));    
-  }
-  for(i=0;i<56;i++)
-  {
-    LED_ON(strip.Color(255,200+i,46));
-  }
-  for(i=0;i<210;i++)
-  {
-    LED_ON(strip.Color(255,255,46+i));
-  }
-  for(i=0;i<256;i++)
-  {
+     void Fine_LED()                       // '맑은 날' LED 출력
+    {
+     int i;
+     for(i=0;i<201;i++)
+      {
+       LED_ON(strip.Color(255,i,0));
+        }
+     for(i=0;i<47;i++)
+     {
+     LED_ON(strip.Color(255,200,i));    
+     }
+    for(i=0;i<56;i++)
+      {
+      LED_ON(strip.Color(255,200+i,46));
+      }
+    for(i=0;i<210;i++)
+    {
+     LED_ON(strip.Color(255,255,46+i));
+    }
+    for(i=0;i<256;i++)
+    {
     LED_ON(strip.Color(255,255-i,255-i));
-  }
-}
+    }
+    }
 
-void Cloudy_LED()                     // '구름 낀 날' LED 출력
-{
-  int i,j;
-  for(j=30;j<255;j++)
-  {
-    LED_ON(strip.Color(j, j, j));
-  }
-  for(j=255;j>30;j--)
-  {
-    LED_ON(strip.Color(j, j, j));
+    void Cloudy_LED()                     // '구름 낀 날' LED 출력
+     {
+     int i,j;
+     for(j=30;j<255;j++)
+     {
+      LED_ON(strip.Color(j, j, j));
+      }
+     for(j=255;j>30;j--)
+    {
+      LED_ON(strip.Color(j, j, j));
 
-  }
-  delay(3000);
-}
+      }
+    delay(3000);
+     }
 
-void Snowy_LED()                      // '눈 오는 날' LED 출력
-{
-  LED_ON(strip.Color(150, 150, 150));
-  delay(2000);
-  LED_ON(strip.Color(0,0,0));
-  delay(10);
-  LED_ON(strip.Color(150, 150, 150));
-}
-void Light_Rainy_LED()                // '약한 비' LED 출력
-{
-  int i;
-  for(i=0;i<201;i++)
-  {
-    LED_ON(strip.Color(0,234-i,234-i));
-  }
-  for(i=0;i<201;i++)
-  {
+    void Snowy_LED()                      // '눈 오는 날' LED 출력
+      {
+     LED_ON(strip.Color(150, 150, 150));
+     delay(2000);
+     LED_ON(strip.Color(0,0,0));
+     delay(10);
+     LED_ON(strip.Color(150, 150, 150));
+     }
+    void Light_Rainy_LED()                // '약한 비' LED 출력
+    {
+    int i;
+    for(i=0;i<201;i++)
+    {
+      LED_ON(strip.Color(0,234-i,234-i));
+    }
+    for(i=0;i<201;i++)
+    {
      LED_ON(strip.Color(0,34+i,34+i));
-  }
-}
+     }
+    }
 
-void Lightening_LED()                  // '뇌우' LED 출력
-{
-  //Serial.println("fsfdsdfd");
-  int i,j,k;
+    void Lightening_LED()                  // '뇌우' LED 출력
+    {
+    //Serial.println("fsfdsdfd");
+    int i,j,k;
     for(i=0;i<15;i++)
-  {
+    {
     LED_ON(strip.Color(80, 80, 250));
     delay(10);
     LED_ON(strip.Color(0, 0, 0));
     delay(5);
-  }
-  for(i=0;i<5;i++)
-  {
+    }
+    for(i=0;i<5;i++)
+    {
     LED_ON(strip.Color(80, 80, 250));
     delay(500);
     LED_ON(strip.Color(0, 0, 0));
     delay(100);
-  } 
-  for(i=0;i<8;i++)
-  {
+    } 
+    for(i=0;i<8;i++)
+    {
     LED_ON(strip.Color(80, 80, 250));
     delay(1000);
     LED_ON(strip.Color(0, 0, 0));
     delay(50);
-  }
-}
+    }
+    }
 
-}
-}
-}
-}
-}
-}
-}
-\'
-      - **2. 장소변경 앱 만들기** 
-          build.gradle(Module: app)에 compile 'com.akexorcist:bluetoothspp:1.0.0' 추가
-      > MainActivity.java
-      package com.example.leeje.lasttest;
+    }
+    }
+    }
+    }
+    }
+    }
+    }
+
+  - **2. 장소변경 앱 만들기** 
+     build.gradle(Module: app)에 compile 'com.akexorcist:bluetoothspp:1.0.0' 추가
+        > MainActivity.java
+package com.example.leeje.lasttest;
 import android.content.Intent;
 import android.location.Address;
 import android.location.Geocoder;
@@ -496,7 +499,7 @@ import app.akexorcist.bluetotohspp.library.BluetoothSPP;
 import app.akexorcist.bluetotohspp.library.BluetoothState;
 import app.akexorcist.bluetotohspp.library.DeviceList;
 
-public class MainActivity extends AppCompatActivity {
+    public class MainActivity extends AppCompatActivity {
     private BluetoothSPP bt;
 
     String temp ;   //temp에 문자열 저장
@@ -695,7 +698,7 @@ public class MainActivity extends AppCompatActivity {
     }
       
    > activity_main.xml
-   <?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -821,7 +824,7 @@ public class MainActivity extends AppCompatActivity {
             android:layout_alignRight="@+id/editText3"
             android:text="지도2" />
     </RelativeLayout>
-</android.support.constraint.ConstraintLayout>
+    </android.support.constraint.ConstraintLayout>
 
 **동영상**
 
