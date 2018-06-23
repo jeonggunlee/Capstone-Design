@@ -1,1 +1,1 @@
-![이미지](https://drive.google.com/drive/folders/1XuFcj11BQI6m-O0Vghp8_DwqeTcqfmrc?usp=sharing)
+![이미지](https://drive.google.com/file/d/1VO--qXvex_SWhQC6Ns92Hez5RrbuoOCv/view?usp=sharing)
