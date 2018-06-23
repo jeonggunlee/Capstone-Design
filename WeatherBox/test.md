@@ -1,1 +1,1 @@
-![png](C:\exex.png)
+![png](C:/exex/raining.png)
