@@ -1,1 +1,1 @@
-![Alt text](C:\exex\raining.jpg "Optional title")
+![C:\exex\raining.png](C:\exex\raining.png "Optional title")
