@@ -32,25 +32,26 @@
 
 **코드**
       - **1. 아두이노 제어**
-               >#include <ArduinoJson.h>
-#ifdef __AVR__
-#include <avr/power.h>
-#endif
-#include <SPI.h>  //API시 필요
-#include <ESP8266WiFi.h>  
-#include <Adafruit_NeoPixel.h>
-#include<SoftwareSerial.h>
-#define PIN D6                     // 네오픽셀 할당 핀(Digital 6)
-#define NUM_LEDS 60
-#define N_LEDS 30
-#define BRIGHTNESS 1000
-#define CLOUD D7
-#define PUMP D2
-SoftwareSerial BTSerial(D3, D5);
-Adafruit_NeoPixel strip = Adafruit_NeoPixel(N_LEDS, PIN, NEO_GRBW + NEO_KHZ800);
-#define VARID "70b9642cec0afd458b10d3914b597364"  //api key
+         
+    #include <ArduinoJson.h>
+    #ifdef __AVR__
+    #include <avr/power.h>
+    #endif
+    #include <SPI.h>  //API시 필요
+    #include <ESP8266WiFi.h>  
+    #include <Adafruit_NeoPixel.h>
+    #include<SoftwareSerial.h>
+    #define PIN D6                     // 네오픽셀 할당 핀(Digital 6)
+    #define NUM_LEDS 60
+    #define N_LEDS 30
+    #define BRIGHTNESS 1000
+    #define CLOUD D7
+    #define PUMP D2
+    SoftwareSerial BTSerial(D3, D5);
+    Adafruit_NeoPixel strip = Adafruit_NeoPixel(N_LEDS, PIN, NEO_GRBW + NEO_KHZ800);
+    #define VARID "70b9642cec0afd458b10d3914b597364"  //api key
 
-////////////////////////////////////////////////////////////////////////////////////////// 
+------------------------------------------------------------------------------------
                     
       //블루투스 연결시 사용한 변수  
       String cLine = "";
@@ -61,7 +62,7 @@ Adafruit_NeoPixel strip = Adafruit_NeoPixel(N_LEDS, PIN, NEO_GRBW + NEO_KHZ800);
       int i=2;
       int j=2;
 
-//////////////////////////////////////////////////////////////////////////////////////////
+--------------------------------------------------------------------------------------
                               
     char ssid[] = "Hallym WiFi";       // wifi ssid
     char pass[] = "1111133333";        // wifi password
