@@ -27,7 +27,7 @@
 >   - 4차 산업인 홈 IOT시대에서 weather_box를 빼놓을 수 없습니다. 창문을 열거나 밖을 나가지 않아도 현재 바깥 날씨를 직접적으로 볼 수 있어서 **우산과 옷차림을 준비**할 수 있습니다. 날씨 상태를 볼 수 있고 **빗소리**를 들으며 책을 읽거나 **무드등**으로 **인테리어 효과**를 줄 수 있습니다. 
 >   - 별도의 조작 없이도 weather_box가 모든 제어를 자동으로 해주기 때문에 **IT기기를 잘 사용하지 못하는 층**, 어린 아이들이 있는 가정이나 어린이집도 사용자 층으로 기대할 수 있습니다. 기기를 잘 다루지 못해도 쉽게 날씨를 접할 수 있어서 편리하고 아이들 눈높이의 **시각적인 효과로 재미와 세계지역의 날씨**에 대해 알 수 있습니다. 떨어져 지내는 친구들이나 가족들이 사는 지역으로 **앱을 이용해 장소 변경**할 수 있어서 먼 지역의 기상상태를 찾아봐야 하는 불편함을 줄일 수 있습니다. 그리고 실시간으로 변하는 **날씨가 업데이트되어 최신의 날씨 상태**를 확인할 수 있습니다.        
 
-<img src="https://github.com/dongaah/Capstone-Design/blob/master/WeatherBox/exex/img_sun.png?raw=true" width="250" height="450"> <img src="https://github.com/dongaah/Capstone-Design/blob/master/WeatherBox/exex/cloudy.png?raw=true" width="250" height="450"> <img src="https://github.com/dongaah/Capstone-Design/blob/master/WeatherBox/exex/raining.png?raw=true" width="250" height="450">
+<img src="https://github.com/dongaah/Capstone-Design/blob/master/WeatherBox/exex/img_sun.png?raw=true" width="270" height="420"> <img src="https://github.com/dongaah/Capstone-Design/blob/master/WeatherBox/exex/cloudy.png?raw=true" width="270" height="420"> <img src="https://github.com/dongaah/Capstone-Design/blob/master/WeatherBox/exex/raining.png?raw=true" width="270" height="420">
 
 
 **코드**
