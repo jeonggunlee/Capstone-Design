@@ -471,7 +471,7 @@
 ----------------------------------------------------------------------------------
   - **2. 장소변경 앱 만들기** 
   
-     **build.gradle(Module: app)에 compile 'com.akexorcist:bluetoothspp:1.0.0' 추가
+     **build.gradle(Module: app)에 compile 'com.akexorcist:bluetoothspp:1.0.0' 추가**
        
          MainActivity.java
         package com.example.leeje.lasttest;
