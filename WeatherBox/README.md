@@ -32,7 +32,7 @@
 
 **코드**
       - **1. 아두이노 제어**
-      > #include <ArduinoJson.h>
+      >\' #include <ArduinoJson.h>
 #ifdef __AVR__
 #include <avr/power.h>
 #endif
@@ -459,6 +459,7 @@ void Lightening_LED()                  // '뇌우' LED 출력
 }
 }
 }
+\'
       - **2. 장소변경 앱 만들기** 
           build.gradle(Module: app)에 compile 'com.akexorcist:bluetoothspp:1.0.0' 추가
       > MainActivity.java
