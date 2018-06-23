@@ -32,7 +32,7 @@
 
 **코드**
       - **1. 아두이노 제어**
-      >\' #include <ArduinoJson.h>
+               >#include <ArduinoJson.h>
 #ifdef __AVR__
 #include <avr/power.h>
 #endif
@@ -51,6 +51,7 @@ Adafruit_NeoPixel strip = Adafruit_NeoPixel(N_LEDS, PIN, NEO_GRBW + NEO_KHZ800);
 #define VARID "70b9642cec0afd458b10d3914b597364"  //api key
 
 //////////////////////////////////////////////////////////////////////////////////////////
+
 //블루투스 연결시 사용한 변수
 String cLine = "";
 String latString = "";
@@ -61,6 +62,7 @@ int i=2;
 int j=2;
 
 //////////////////////////////////////////////////////////////////////////////////////////
+
 char ssid[] = "Hallym WiFi";       // wifi ssid
 char pass[] = "1111133333";        // wifi password
 int status = WL_IDLE_STATUS;       // the Wifi radio's status
@@ -74,6 +76,7 @@ WiFiClient client;
 IPAddress hostIp;
 
 //////////////////////////////////////////////////////////////////////////////////////////
+
 unsigned long lastConnectionTime = 0;         // last time you connected to the server, in milliseconds
 const unsigned long postingInterval = 1000L; // delay between updates, in milliseconds
 boolean readingVal;
@@ -131,6 +134,7 @@ void setup() {
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////
+
 void loop() {  
   String valString;
 
@@ -179,6 +183,7 @@ void loop() {
   }
   
 //////////////////////////////////////////////////////////////////////////////////////////
+
   //api로 받아온 날씨 자르기
   while (client.available()) {     
     char inChar = client.read();  //inChar에 읽어온 내용 저장
