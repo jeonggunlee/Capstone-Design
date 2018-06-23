@@ -835,6 +835,6 @@
 
 -시연 동영상 참조 -> [Weather Box test](https://youtu.be/GDOYBwniNqM)  
 
-[![weather box test](http://img.youtube.com/vi/GDOYBwniNqM/0.jpg)](https://www.youtubehttps://youtu.be/GDOYBwniNqM)
+[![weather box test](http://img.youtube.com/vi/GDOYBwniNqM/0.jpg)](https://youtu.be/GDOYBwniNqM)
 
 
