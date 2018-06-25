@@ -25,8 +25,10 @@ Clap-to-Switch Project\
 필요할 경우, 패턴 등록 기능 등을 추가한다.
 
 ## 2. 작동 알고리즘<a name='algorithm'/>
-![Alt text](/Images/clap1.jpg)   ![Alt text](/Images/clap2.jpg)\
-박수와 음성의 비교
+박수와 음성의 비교\
+![](https://raw.githubusercontent.com/cobaltp/Capstone-Design/master/TeamA/Images/clap1.jpg)\
+![](https://raw.githubusercontent.com/cobaltp/Capstone-Design/master/TeamA/Images/clap2.jpg)
+
 
 박수 소리와 일반적인 잡음, 음성은 dB가 확연하게 차이나므로 이를 이용하여 마이크로 입력되는 소리에서 박수 소리를 얻어낼 수 있다.\
 (단순한 큰 소리와 구분짓는 것은 불가능하지만, 단순한 큰 소리가 패턴으로 나타나는 경우는 없으므로 고려하지 않는다.)
@@ -95,18 +97,18 @@ def loop():
 KiCad용 회로 파일은 <a href='https://github.com/cobaltp/Capstone-Design/TeamA/Design/clap-to-switch_prototype/'>/Design/clap-to-switch_prototype</a>에서 구할 수 있다.\
 부품 상세 내용은 <a href='https://github.com/cobaltp/Capstone-Design/blob/master/TeamA/예산%20계획서'>예산 계획서 파일</a>을 참조하라.
 
-![Alt text](/Images/cts_design.jpg)\
+![](https://raw.githubusercontent.com/cobaltp/Capstone-Design/master/TeamA/Images/cts_design.jpg)\
 전체 회로의 모습.
 
 각 회로를 확대하면 다음과 같다.
 
-![Alt text](/Images/cts_design_amp.jpg)\
+![](https://raw.githubusercontent.com/cobaltp/Capstone-Design/master/TeamA/Images/cts_design_amp.jpg)\
 오디오 증폭 회로
 
-![Alt text](/Images/cts_design_avr.jpg)\
+![](https://raw.githubusercontent.com/cobaltp/Capstone-Design/master/TeamA/Images/cts_design_avr.jpg)\
 마이크로프로세서 회로
 
-![Alt text](/Images/cts_design_reg.jpg)\
+![](https://raw.githubusercontent.com/cobaltp/Capstone-Design/master/TeamA/Images/cts_design_reg.jpg)\
 전원 회로(9V-5V 레귤레이터 회로)
 
 ## 4. 프로토타입 제작<a name='prototyping'/>
@@ -114,18 +116,18 @@ ATTiny를 이용하여 프로토타입을 제작하였다.\
 (ATTiny로의 업로드는 Arduino를 ISP로 사용하여 진행하였다. 다음 링크를 참조하였다.)\
 (https://kocoafab.cc/tutorial/view/289)
 
-![Alt text](/Images/cts_prototype_1.jpg)\
-프로토타입의 모습
+![프로토타입의 모습](https://raw.githubusercontent.com/cobaltp/Capstone-Design/master/TeamA/Images/cts_prototype_1.jpg)\
+
 
 회로 세부 부분 설명
 
-![Alt text](/Images/cts_prototype_2.jpg)
+![](https://raw.githubusercontent.com/cobaltp/Capstone-Design/master/TeamA/Images/cts_prototype_2.jpg)
 
-![Alt text](/Images/cts_prototype_3.jpg)
+![](https://raw.githubusercontent.com/cobaltp/Capstone-Design/master/TeamA/Images/cts_prototype_3.jpg)
 
-![Alt text](/Images/cts_prototype_4.jpg)
+![](https://raw.githubusercontent.com/cobaltp/Capstone-Design/master/TeamA/Images/cts_prototype_4.jpg)
 
-![Alt text](/Images/cts_prototype_5.jpg)
+![](https://raw.githubusercontent.com/cobaltp/Capstone-Design/master/TeamA/Images/cts_prototype_5.jpg)
 
 ## 4.1. 프로토타입 코드<a name='prototype_code'/>
 프로토타입에 사용한 코드는 다음과 같다.\
@@ -246,7 +248,9 @@ void loop() {
 ```
 
 ### 4.2. 실험 영상<a name='test_video'/>
-[![Video Label](http://img.youtube.com/vi/OW1-RDwN8mk/0.jpg)](https://youtu.be/OW1-RDwN8mk)]
+[![패턴 확인 실험 영상](http://img.youtube.com/vi/OW1-RDwN8mk/0.jpg)](https://youtu.be/OW1-RDwN8mk)]
+
+박수를 인식하면 녹색 LED가 점멸하며, 특정 패턴을 입력하여 인식에 성공한 경우 일정 시간 동안 붉은색 LED가 점등한다.
 
 ## 5. 추후 계획<a name='further_plans'/>
 프로토타입 방식으로 제작한 현재 장치를 브래드보드를 이용하여 실물로 제작하는 게 우선이다.\
