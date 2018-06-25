@@ -257,6 +257,6 @@ void loop() {
 (입출력 핀이 많은 마이크로컨트롤러를 사용하거나, 시프트 레지스터를 이용할 수 있겠다.)
 
 ## 6. 출처 및 참조<a name='references'/>
-YouTube - Turn your lights on with clapping?! by GreatScott!! (https://www.youtube.com/watch?v=7Ao6KD8f9J4)\
-LM386 microphone amplifier by Dimitar Kovachev (https://lowvoltage.wordpress.com/2011/05/15/lm386-mic-amp/)\
+YouTube - Turn your lights on with clapping?! by GreatScott!! (https://www.youtube.com/watch?v=7Ao6KD8f9J4) \
+LM386 microphone amplifier by Dimitar Kovachev (https://lowvoltage.wordpress.com/2011/05/15/lm386-mic-amp/) \
 LM386 Power Amplifier Datasheet by Texas Instruments (http://www.ti.com/lit/ds/symlink/lm386.pdf)
