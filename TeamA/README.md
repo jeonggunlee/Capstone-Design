@@ -1,5 +1,4 @@
 Clap-to-Switch Project
-==========
 Hallym University Capstone Design Project, Spring 2018\
 한림대학교 컴퓨터공학과 종합설계프로젝트, 2018년 1학기
 
@@ -116,8 +115,7 @@ ATTiny를 이용하여 프로토타입을 제작하였다.\
 (ATTiny로의 업로드는 Arduino를 ISP로 사용하여 진행하였다. 다음 링크를 참조하였다.)\
 (https://kocoafab.cc/tutorial/view/289)
 
-![프로토타입의 모습](https://raw.githubusercontent.com/cobaltp/Capstone-Design/master/TeamA/Images/cts_prototype_1.jpg)\
-
+![프로토타입의 모습](https://raw.githubusercontent.com/cobaltp/Capstone-Design/master/TeamA/Images/cts_prototype_1.jpg)
 
 회로 세부 부분 설명
 
